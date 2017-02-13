@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.16.1",
     "cors": "^2.8.1",
     "electron": "^1.4.15",
+    "electron-shortcut": "^0.5.0",
     "express": "^4.14.1",
+    "highcharts": "^5.0.7",
     "socket.io": "^1.7.2"
   }
 }

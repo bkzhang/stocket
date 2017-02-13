@@ -1,7 +1,6 @@
 'use strict'
 
 const app = require('express')()
-const path = require('path')
 const server = require('http').createServer(app)
 const https = require('https')
 const io = require('socket.io')(server)
@@ -16,14 +15,14 @@ const print_json = true
 
 function getQuotes(socket, ticker) {
   https.get({
-    port: 442,
+    port: 443,
     method: 'GET',
     hostname: 'www.google.com',
     path: '/finance/info?client=ig&q=' + ticker,
     timeout: 1000
   }, (res) => {
     res.setEncoding('utf8')
-    const data = ''
+    let data = ''
 
     res.on('data', (chunk) => {
       data += chunk
