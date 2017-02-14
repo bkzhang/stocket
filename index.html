@@ -23,12 +23,12 @@
     $(document).ready(() => {
       /* start of plot */
       function makeplot() {
-        Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/candlestick_dataset_2007_2009.csv", function(data){ processData(data) } )
+        Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/candlestick_dataset_2007_2009.csv", (data) => { processData(data) } )
       }
 
       function processData(allRows) {
         let data_open = [], data_close = [], data_high = [], data_low = [], dates = []
-        for (var i = 0; i < allRows.length; i++) {
+        for (let i = 0; i < allRows.length; i++) {
           let row = allRows[i]
 	        data_close.push(parseFloat(row['close']))
 	        data_high.push(parseFloat(row['high']))
@@ -39,7 +39,7 @@
       }
 
 
-      function makePlotly( data_open, data_close, data_high, data_low ){
+      function makePlotly( data_open, data_close, data_high, data_low ) {
 	      let data_dates = getAllDays('2007-10-01', '2009-04-01')
 	
 	      let fig = PlotlyFinance.createCandlestick({
@@ -50,7 +50,7 @@
 	        dates: data_dates
         })
 
-        fig.layout.title = 'The Great Recession';
+        fig.layout.title = 'The Great Recession'
 
         fig.layout.annotations = 
           [{
